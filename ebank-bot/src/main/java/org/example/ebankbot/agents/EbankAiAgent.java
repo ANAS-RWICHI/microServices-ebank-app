@@ -28,4 +28,5 @@ public class EbankAiAgent {
                 .call()
                 .content();
     }
+
 }
