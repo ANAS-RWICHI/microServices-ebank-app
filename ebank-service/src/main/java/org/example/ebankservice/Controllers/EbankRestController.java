@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 public class EbankRestController {
-     private EbankService ebankService;
+     private final EbankService ebankService;
 
 
      public EbankRestController(EbankService ebankService) {

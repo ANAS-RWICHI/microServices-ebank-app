@@ -1,7 +1,6 @@
 package com._38_.customerservice;
 
 import com._38_.customerservice.Entities.Customer;
-import com._38_.customerservice.Repository.CustomerRepository;
 import com._38_.customerservice.services.CustomerService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,12 +17,10 @@ public class CustomerServiceApplication {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(CustomerRepository repository, CustomerRepository customerRepository, CustomerService customerService) {
+    CommandLineRunner commandLineRunner(CustomerService customerService) {
         return args -> {
             List<String> names = List.of("John", "Jane", "Alice", "Bob");
-            names.forEach(name -> {
-                customerService.saveCustomer(Customer.builder().name(name).email(name + "@example.com").build());
-            });
+            names.forEach(name -> customerService.saveCustomer(Customer.builder().name(name).email(name + "@example.com").build()));
         };
     }
 }
