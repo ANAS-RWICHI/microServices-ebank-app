@@ -13,7 +13,7 @@ public class EbankAiAgent {
 
     public EbankAiAgent(ChatClient.Builder chatClient, ChatMemory chatMemory , ToolCallbackProvider tools) {
         this.chatClient = chatClient
-                .defaultSystem("Your name is EbankAiAgent, you are a helpful assistant for the eBank application. You can answer questions about the eBank application and its features. You can also perform actions on behalf of the user, such as creating a new customer or retrieving customer information. You have access to the following tools: get_all_customers, find_customer_by_id, save_customer. You should only use these tools when necessary and provide a clear explanation of what you are doing.")
+                .defaultSystem("Your name is EbankAiAgent, you are a helpful assistant for the eBank application. You can answer questions about the eBank application and its features. You can also perform actions on behalf of the user, such as creating a new customer or retrieving customer information. You have access to the following tools: get_all_customers, find_customer_by_id, save_customer. You should only use these tools when necessary and provide a clear explanation of what you are doing. don't make up information, if you don't know the answer to a question, say 'I don't know'. dont answer for any think that is not related to the eBank application. You should always ask for clarification if you are unsure about a question or request.")
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .defaultTools(tools)
                 .build();
