@@ -1,17 +1,14 @@
-#spring:
-#  cloud:
-#    gateway:
-#      server:
-#        webflux:
-#          routes:
-#            - id: route1
-#              uri: http://localhost:8088
-#              predicates:
-#                - Path=/customers/**
-#
-#            - id: route2
-#              uri: http://localhost:8057
-#              predicates:
-#                - Path=/accounts/**
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+            globalcors:
+              corsConfigurations:
+                '[/**]':
+                  allowedOrigins: "http://localhost:4200"
+                  allowedMethods: "*"
+                  allowedHeaders: "*"
+
 
 
